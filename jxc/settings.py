@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.purchase_sale.apps.PurchaseSaleConfig',
+    'silk',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'silk.middleware.SilkyMiddleware',
 ]
 
 ROOT_URLCONF = 'jxc.urls'
@@ -77,11 +79,12 @@ WSGI_APPLICATION = 'jxc.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
+        # 'ENGINE': 'django.db.backends.mysql',
         'NAME': 'test',
-        'USER':'root',
-        'PASSWORD':'123456',
-        'HOST':'192.168.0.118'
+        # 'USER':'root',
+        # 'PASSWORD':'123456',
+        # 'HOST':'192.168.0.118'
     }
 }
 
@@ -124,3 +127,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIR=(os.path.join(BASE_DIR,"static"))
+STATIC_ROOT = os.path.join(BASE_DIR, 'statics/')
